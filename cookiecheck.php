@@ -8,6 +8,8 @@ function cookiecheck_civicrm_buildForm($formName, &$form) {
   );
 
   if (in_array($formName, $check_forms)) {
+    CRM_Core_Resources::singleton()->addScriptFile('ca.nodisys.cookiecheck', 'cookiecheck.js');
+
     if (empty($_COOKIE)) {
       if ((! isset($_REQUEST['cookieredirect'])) && $_REQUEST['cookieredirect'] = 1) {
         $options = array(
